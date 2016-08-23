@@ -24,6 +24,9 @@ Before a branch being merged **the code must have been reviewed and approved** b
 ### Fixing mistakes
 To cancel the current commit: `git reset --soft HEAD~`
 
+## Github
+Use issues and milestones!
+
 ## Changing/creating models
 1. Change/create the code of the model(s)
 2. Run `python manage.py makemigrations` to create migrations for the changes
