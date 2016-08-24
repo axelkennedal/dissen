@@ -1,7 +1,8 @@
 # dissen
 *D-Dagen Internal Systems*
 
-![D-Dagen logo](dissen/common_static/d-dagen-loco_medium.png)
+![D-Dagen logo](dissen/dissen/common_static/d-dagen-logo_medium.png)
+
 
 Systems to be used by the project group of the D-Dagen career fair at KTH Royal Institute of Technology.
 
