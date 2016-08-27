@@ -7,7 +7,7 @@ Some handy dandy tips, *make sure you read all of it before getting started*.
 3. To start a development server, run `python manage.py runserver` in a new terminal window, stop it with ctr-c.
 
 ## Feature Branches & Git
-Create a new branch when you start working on a new feature and add your name to it (e.g. "contact model -axelkennedal"). **Don't commit directly to master** unless it's for stuff like readme.md etc.
+Create a new branch when you start working on a new feature and add your name to it (e.g. "contact_model-axelkennedal"). **Don't commit directly to master** unless it's for stuff like readme.md etc.
 
 ### Creation & Merge
 1. Create a new local branch and start working on it (make commits): `git checkout -b [new-branch-name] master`
