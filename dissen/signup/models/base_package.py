@@ -1,3 +1,5 @@
+from package import Package
+
 class BasePackage(Package):
     """Describes the base package."""
 

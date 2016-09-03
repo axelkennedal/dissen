@@ -1,4 +1,6 @@
-class AdditionalOrderPackage():
+from django.db import models
+
+class AdditionalOrderPackage(models.Model):
     """Describes an additional order."""
 
     PEOPLE_DAY_PRICE = 300
@@ -21,7 +23,7 @@ class AdditionalOrderPackage():
         self.tables = tables
 
     def __calculate_total_price(self):
-        return (people_day * PEOPLE_DAY_PRICE) +
-        (people_evening * PEOPLE_EVENING_PRICE) +
-        (drink_tickets * DRINK_TICKET_PRICE) +
+        return (people_day * PEOPLE_DAY_PRICE) + \
+        (people_evening * PEOPLE_EVENING_PRICE) + \
+        (drink_tickets * DRINK_TICKET_PRICE) + \
         (tables * TABLE_PRICE)
