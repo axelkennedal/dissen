@@ -1,8 +1,15 @@
 from django.db import models
 
-from company import Company
+from . import Company
 
 class Event(models.Model):
+    """Describes an Event a company organizes together with D-Dagen"""
+
+    def __str__(self):
+        return self.company.name + " " + self.event_type + " " + self.time
+
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    TIMESTAMP = models.DateTimeField(auto_now_add = True)
     EVENT_TYPE_CHOICES = (
         ("lunch", "Lunch lecture"),
         ("pub", "Pub"),
@@ -12,4 +19,3 @@ class Event(models.Model):
     location = models.CharField(max_length=100)
     time = models.DateTimeField()
     price = models.IntegerField()
-    company = models.ForeignKey(Company, on_delete=models.CASCADE)
