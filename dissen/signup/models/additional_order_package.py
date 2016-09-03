@@ -1,6 +1,8 @@
 from django.db import models
 
-class AdditionalOrderPackage(models.Model):
+from package import Package
+
+class AdditionalOrderPackage(Package):
     """Describes an additional order."""
 
     PEOPLE_DAY_PRICE = 300
