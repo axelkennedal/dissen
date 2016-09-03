@@ -4,6 +4,9 @@ from django.core.validators import MinValueValidator
 class Company(models.Model):
     """Describes a company/organization participating or interested in D-Dagen"""
 
+    def __str__(self):
+        return self.name + ": " + area_of_business
+
     # filled in by company
     AREA_OF_BUSINESS_CHOICES = (
         ("finance", "Finance"),
@@ -12,7 +15,7 @@ class Company(models.Model):
         ("games", "Games"),
         ("comm", "Communication")
     )
-    company_name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     description = models.CharField(max_length=1100)
     logotype = models.FileField()
     area_of_business = models.CharField(choices=AREA_OF_BUSINESS_CHOICES, default="Pick one", max_length=100)
