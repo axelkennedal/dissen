@@ -30,4 +30,4 @@ class Company(models.Model):
         ("high","HIGH")
     )
     comment = models.CharField(max_length=500)
-    priority = models.CharField(choices=PRIORITY_CHOICES, default=PRIORITY_CHOICES[0], max_length=100)
+    priority = models.CharField(choices=PRIORITY_CHOICES, default=PRIORITY_CHOICES[0], max_length=10)
