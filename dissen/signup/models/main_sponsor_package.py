@@ -1,3 +1,5 @@
+from package import Package
+
 class MainSponsorPackage(Package):
     """Describes the package for the main sponsor."""
 
