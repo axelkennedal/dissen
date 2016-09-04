@@ -1,6 +1,6 @@
 from django.db import models
 
-from . import Company
+from company import Company
 
 class Event(models.Model):
     """Describes an Event a company organizes together with D-Dagen"""
