@@ -40,6 +40,13 @@ class Company(models.Model):
     comment = models.CharField(max_length=500)
     priority = models.CharField(choices=PRIORITY_CHOICES, default=PRIORITY_CHOICES[0], max_length=10)
 
+    def calculateTotalPrice(self):
+        """Sum up the prices of the packages the company has selected for this instance of D-Dagen. Assumes there is only one instance of each package."""
+
+        totalPrice = 0
+        # todo
+        return totalPrice
+
 class CompanyStatus(models.Model):
     """A company can be in a specific status depending on how far they've come in the application process. A new instance of this class should be created each time the company changes status, so we can track change over time (using the TIMESTAMPs). Statuses are managed by the project team or automatically by the system."""
 
