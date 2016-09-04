@@ -12,10 +12,18 @@ class Company(models.Model):
         ("finance", "Finance"),
         ("appdev", "App Development"),
         ("consulting", "Consulting"),
-        ("games", "Games"),
-        ("comm", "Communication")
+        ("entertainment", "Entertainment"),
+        ("comm", "Communication"),
+        ("it", "IT Services"),
+        ("prodev", "Product Development"),
+        ("info", "Information"),
+        ("edu", "Education"),
+        ("data", "Data & Search"),
+        ("fash", "Fashion"),
+        ("sec", "Security"),
+        ("man", "Management"),
     )
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
     description = models.CharField(max_length=1100)
     logotype = models.FileField()
     area_of_business = models.CharField(choices=AREA_OF_BUSINESS_CHOICES, default="Pick one", max_length=100)
