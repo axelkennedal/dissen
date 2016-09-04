@@ -39,3 +39,17 @@ class Company(models.Model):
     )
     comment = models.CharField(max_length=500)
     priority = models.CharField(choices=PRIORITY_CHOICES, default=PRIORITY_CHOICES[0], max_length=10)
+
+class CompanyStatus(models.Model):
+    """A company can be in a specific status depending on how far they've come in the application process. A new instance of this class should be created each time the company changes status, so we can track change over time (using the TIMESTAMPs). Statuses are managed by the project team or automatically by the system."""
+
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    TIMESTAMP = models.DateTimeField(auto_now_add = True)
+    STATUS_CHOICES = (
+        ("notcontacted", "Not Contacted"),
+        ("contacted", "Contacted - Waiting to sign up"),
+        ("signedup", "Signed Up - Waiting for contract to be signed"),
+        ("contractsigned", "Contract Signed"),
+        ("dec", "Declined")
+    )
+    STATUS = models.CharField(choices=STATUS_CHOICES,default=STATUS_CHOICES[0] max_length=100)
