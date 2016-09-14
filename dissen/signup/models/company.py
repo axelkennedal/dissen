@@ -5,7 +5,7 @@ class Company(models.Model):
     """Describes a company/organization participating or interested in D-Dagen"""
 
     def __str__(self):
-        return self.name + ": " + area_of_business
+        return self.name + ": " + self.area_of_business
 
     # filled in by company
     AREA_OF_BUSINESS_CHOICES = (
@@ -59,4 +59,4 @@ class CompanyStatus(models.Model):
         ("contractsigned", "Contract Signed"),
         ("dec", "Declined")
     )
-    STATUS = models.CharField(choices=STATUS_CHOICES,default=STATUS_CHOICES[0] max_length=100)
+    STATUS = models.CharField(choices=STATUS_CHOICES,default=STATUS_CHOICES[0], max_length=100)
