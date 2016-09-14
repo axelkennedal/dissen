@@ -1,6 +1,7 @@
 from django.db import models
 
 from company import Company
+
 class Contact(models.Model):
     """Describes a contact from a company."""
 
