@@ -1,6 +1,6 @@
 from django.db import models
 
-from company import Company
+from signup.models.company import Company
 
 class Fair(models.Model):
     """Describes an instance of D-Dagen."""
