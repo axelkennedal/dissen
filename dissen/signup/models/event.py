@@ -6,7 +6,7 @@ class Event(models.Model):
     """Describes an Event a company organizes together with D-Dagen"""
 
     def __str__(self):
-        return self.company.name + " " + self.event_type + " " + self.time
+        return self.company.name + " " + self.event_type + " " + str(self.time)
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     TIMESTAMP = models.DateTimeField(auto_now_add = True)
