@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, world. You're at the signup index.")
+
+def signup_form(request):
+    return HttpResponse("This is where you actually sign up.")
