@@ -1,10 +1,13 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.views.generic.edit import CreateView
 from django.http import HttpResponse
+
+from signup.models.company import Company
 
 def index(request):
     return HttpResponse("Hello, world. You're at the signup index.")
 
-def signup_form(request):
-    return HttpResponse("This is where you actually sign up.")
+class SignupForm(CreateView):
+    model = Company
+    fields = ['name', 'description', 'logotype', 'area_of_business', 'employees',
+    'first_time_at_fair', 'billing_address']
