@@ -3,6 +3,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    # /signup/
     url(r'^$', views.index, name='index'),
-    url(r'signup_form$', views.signup_form, name='signup_form')
+
+    # /signup/signup_form
+    url(r'signup_form$', views.SignupForm.as_view(), name='signup_form')
 ]
