@@ -7,5 +7,8 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
 
     # /signup/signup_form
-    url(r'signup_form$', views.Signup.as_view(), name='signup_form')
+    url(r'signup_form$', views.signup_form, name='signup_form'),
+
+    # /signup/signup_complete
+    url(r'signup_complete$', views.signup_complete, name='signup_complete')
 ]
