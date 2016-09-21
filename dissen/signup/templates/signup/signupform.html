@@ -1,3 +1,44 @@
+<script>
+window.onload = function() {
+  var btn = document.getElementById("addField");
+  btn.onclick = addContactForm;
+}
+
+function addContactForm(evt) {
+  // This code should be refactored asap, because it is fragile and it sucks...
+  var form = document.querySelectorAll('div[name$=id]');
+  // we want to do a deep clone, that is clone all children as well.
+  var node = form[0].cloneNode(true);
+  node.attributes["name"].value = "id_contact_set-" +  form.length + "-id";
+  var fields = node.children[2].children;
+  fields[0].attributes["for"].value = "id_contact_set-" +  form.length + "-first_name";
+  fields[1].attributes["id"].value = "id_contact_set-" +  form.length + "-first_name";
+  fields[1].name = "contact_set-" +  form.length + "-first_name";
+  fields[2].attributes["for"].value = "id_contact_set-" +  form.length + "-last_name";
+  fields[3].attributes["id"].value = "id_contact_set-" +  form.length + "-last_name";
+  fields[3].name = "contact_set-" +  form.length + "-last_name";
+  fields[4].attributes["for"].value = "id_contact_set-" +  form.length + "-email_address";
+  fields[5].attributes["id"].value = "id_contact_set-" +  form.length + "-email_address";
+  fields[5].name = "contact_set-" +  form.length + "-email_address";
+  fields[6].attributes["for"].value = "id_contact_set-" +  form.length + "-cell_phone_number";
+  fields[7].attributes["id"].value = "id_contact_set-" +  form.length + "-cell_phone_number";
+  fields[7].name = "contact_set-" +  form.length + "-cell_phone_number";
+  fields[8].attributes["for"].value = "id_contact_set-" +  form.length + "-other_phone_number";
+  fields[9].attributes["id"].value = "id_contact_set-" +  form.length + "-other_phone_number";
+  fields[9].name = "contact_set-" +  form.length + "-other_phone_number";
+  fields[10].attributes["for"].value = "id_contact_set-" +  form.length + "-address";
+  fields[11].attributes["id"].value = "id_contact_set-" +  form.length + "-address";
+  fields[11].name = "contact_set-" +  form.length + "-address";
+  fields[12].attributes["for"].value = "id_contact_set-" +  form.length + "-DELETE";
+  fields[13].attributes["id"].value = "id_contact_set-" +  form.length + "-DELETE";
+  fields[13].name = "contact_set-" +  form.length + "-DELETE";
+  fields[14].attributes["id"].value = "id_contact_set-" +  form.length + "-id";
+  fields[14].name = "contact_set-" +  form.length + "-id";
+  fields[15].attributes["id"].value = "id_contact_set-" +  form.length + "-company";
+  fields[15].name = "contact_set-" +  form.length + "-company";
+  document.getElementById("forms").appendChild(node);
+}
+</script>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %} <!-- No hackers pls -->
 
@@ -12,12 +53,17 @@
 
     <h1>Contact</h1>
     <p>How may we contact you?</p>
+    <div id="forms">
+      {% for field in contact_formset %}
+        <div id={{field.id}}
+            <div>{{ field.errors }}</div>
+            <label>{{ field.label_tag}}</label>
+            <div>{{ field }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    <button type="button" id="addField">Add field!</button>
+    <button >Sign us up for D-Dagen!</button>
 
-    {% for field in contact_formset %}
-        <div>{{ field.errors }}</div>
-        <label>{{ field.label_tag}}</label>
-        <div>{{ field }}</div>
-    {% endfor %}
-
-    <button type="submit">Sign us up for D-Dagen!</button>
+    {{ contact_formset.management_form }}
 </form>

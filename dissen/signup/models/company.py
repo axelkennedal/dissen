@@ -25,7 +25,7 @@ class Company(models.Model):
     )
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=1100)
-    logotype = models.FileField()
+    # logotype = models.FileField()
     area_of_business = models.CharField(choices=AREA_OF_BUSINESS_CHOICES, default="Pick one", max_length=100)
     employees = models.IntegerField(validators=[MinValueValidator(1)])
     first_time_at_fair = models.BooleanField(default=True)

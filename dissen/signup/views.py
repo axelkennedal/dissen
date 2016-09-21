@@ -11,6 +11,7 @@ def index(request):
 
 def signup_form(request):
     # The form (has been filled in and) is being submitted
+    contact_formset = ContactFormSet(instance=Company())
     if request.POST:
         form = SignupForm(request.POST)
         if form.is_valid():

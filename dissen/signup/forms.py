@@ -10,7 +10,7 @@ class SignupForm(ModelForm):
         fields = (
             'name',
             'description',
-            'logotype',
+            #'logotype',
             'area_of_business',
             'employees',
             'first_time_at_fair',
@@ -25,4 +25,4 @@ ContactFields = (
     'cell_phone_number',
     'other_phone_number',
     'address')
-ContactFormSet = inlineformset_factory(Company, Contact, fields=ContactFields)
+ContactFormSet = inlineformset_factory(Company, Contact, fields=ContactFields, extra=2)
